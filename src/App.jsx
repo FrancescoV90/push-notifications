@@ -1,9 +1,5 @@
 import "./App.css";
-import { getToken, onMessage } from "firebase/messaging";
 import { messaging } from "./firebase/firebaseConfig";
-import { toast, ToastContainer } from "react-toastify";
-import Message from "./components/Message";
-import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const { VITE_APP_VAPID_KEY } = import.meta.env;
