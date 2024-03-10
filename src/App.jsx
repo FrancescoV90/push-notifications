@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 import { getToken, onMessage } from "firebase/messaging";
 import { messaging } from "./firebase/firebaseConfig";
@@ -10,30 +9,19 @@ function App() {
   const { VITE_APP_VAPID_KEY } = import.meta.env;
 
   const requestPermission = async () => {
-    //requesting permission using Notification API
     const permission = await Notification.requestPermission();
 
     if (permission === "granted") {
-      const token = await getToken(messaging, {
+      console.log("Notification permission granted. Requesting for token.");
+      const token = await messaging.getToken({
         vapidKey: VITE_APP_VAPID_KEY,
       });
-
-      //We can send token to server
       console.log("Token generated : ", token);
     } else if (permission === "denied") {
-      //notifications are blocked
+      console.log("Notification permission denied");
       alert("You denied for the notification");
     }
   };
-
-  // useEffect(() => {
-  //   requestPermission();
-  // }, []);
-
-  onMessage(messaging, (payload) => {
-    console.log("incoming msg");
-    toast(<Message notification={payload.notification} />);
-  });
 
   return (
     <>
@@ -42,7 +30,6 @@ function App() {
           Ask for push notification
         </button>
       </div>
-      <ToastContainer />
     </>
   );
 }
