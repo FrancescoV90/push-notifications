@@ -6,9 +6,9 @@ const manifestForPlugIn = {
   registerType: "prompt",
   includeAssests: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
   manifest: {
-    name: "React-vite-app",
-    short_name: "react-vite-app",
-    description: "I am a simple vite app",
+    name: "Push Notifications",
+    short_name: "Push Notifications",
+    description: "Push notification tests with FCM",
     icons: [
       {
         src: "/android-chrome-192x192.png",
