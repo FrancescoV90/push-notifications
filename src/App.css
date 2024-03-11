@@ -8,3 +8,8 @@
 .card {
   padding: 2em;
 }
+
+.token {
+  max-width: 750px;
+  word-break: break-all;
+}

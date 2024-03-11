@@ -1,3 +1,3 @@
 # push-notifications
 
-Push notification tests with FCM
+Push notifications tests with FCM
