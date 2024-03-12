@@ -6,7 +6,7 @@ import { messaging } from "./firebase/firebaseConfig";
 function App() {
   const { VITE_APP_VAPID_KEY } = import.meta.env;
   const [permissionState, setPermissionState] = useState(
-    Notification.permission
+    "Notification" in window && Notification.permission
   );
   const [pushToken, setPushToken] = useState(null);
 
@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <div className="card">
-        {!("Notification" in window) && <div>Notification not supported</div>}
+        {!permissionState && <div>Notification not supported</div>}
         {permissionState === "granted" && (
           <div>Notification permission granted</div>
         )}
