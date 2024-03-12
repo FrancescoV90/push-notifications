@@ -27,6 +27,7 @@ function App() {
   return (
     <>
       <div className="card">
+        {!("Notification" in window) && <div>Notification not supported</div>}
         {permissionState === "granted" && (
           <div>Notification permission granted</div>
         )}
