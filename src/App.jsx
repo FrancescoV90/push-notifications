@@ -32,7 +32,7 @@ function App() {
           <div>Notification permission granted</div>
         )}
         {pushToken && <div className="token">{pushToken}</div>}
-        {permissionState !== "granted" && (
+        {permissionState && permissionState !== "granted" && (
           <button onClick={() => requestPermission()}>
             Ask for push notification
           </button>
